@@ -1,6 +1,4 @@
 [package]
 name = "NetNeighbor"
 version = "1.74.0"
-edition = "2023"
-
-[dependencies]
+edition = "2021"
