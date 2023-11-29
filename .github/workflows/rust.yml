@@ -20,16 +20,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
     - name: Set up Rust
       run: |
-        rust_version=$(cat Cargo.toml | grep -oP 'edition = "\K[^"]+')
-        echo "Rust Edition: $rust_version"
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain $rust_version
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain 1.74.0
         source $HOME/.cargo/env
         rustc --version
         cargo --version
-    
     - name: Build
       run: cargo build --verbose
     - name: Run tests
