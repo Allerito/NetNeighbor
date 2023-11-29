@@ -15,17 +15,26 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Rust
+      run: |
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+        export PATH="$HOME/.cargo/bin:$PATH"
+        rustc --version
+        cargo --version
+
+jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Rust
-      run: |
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain 1.74.0
-        source $HOME/.cargo/env
-        rustc --version
-        cargo --version
+
     - name: Build
       run: cargo build --verbose
     - name: Run tests
