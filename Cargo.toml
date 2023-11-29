@@ -1,4 +1,4 @@
 [package]
-name = "NetNeighbor"
+name = "net_neighbor"
 version = "1.74.0"
 edition = "2021"
