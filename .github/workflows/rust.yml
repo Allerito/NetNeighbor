@@ -27,6 +27,7 @@ jobs:
           export PATH="$HOME/.cargo/bin:$PATH"
           rustc --version
           cargo --version
+          echo 'edition = "2023"' > Cargo.toml
 
   build:
     runs-on: ubuntu-latest
