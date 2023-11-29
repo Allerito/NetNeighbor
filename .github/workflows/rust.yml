@@ -15,22 +15,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-  
-    steps:
-    - uses: actions/checkout@v3
-  
-    - name: Set up Rust
-      run: |
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
-        export PATH="$HOME/.cargo/bin:$PATH"
-        rustup --version
-        rustc --version
-        cargo --version
-
   build:
-    needs: setup
     runs-on: ubuntu-latest
 
     steps:
