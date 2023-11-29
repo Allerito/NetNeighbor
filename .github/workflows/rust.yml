@@ -29,13 +29,6 @@ jobs:
         rustc --version
         cargo --version
 
-    - name: Update Cargo
-      run: |
-        rustup self update
-        rustup update stable
-        rustc --version
-        cargo --version
-
   build:
     needs: setup
     runs-on: ubuntu-latest
