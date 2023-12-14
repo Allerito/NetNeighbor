@@ -4,4 +4,4 @@ version = "1.74.0"
 edition = "2021"
 
 [dependencies]
-druid = "0.8.3"
+qt = "0.3.1"
